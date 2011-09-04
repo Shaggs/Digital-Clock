@@ -1,0 +1,1 @@
+just a small project to learn howto code plus i needed a clock 
