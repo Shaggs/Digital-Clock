@@ -1,26 +1,29 @@
-# use Tkinter to show a digital clock
-# tested with Python24    vegaseat    10sep2006
+# Custom Clock by S.Rees 2018
 
-from Tkinter import *
-import time
+# Imports
+from tkinter import *
+from datetime import datetime, time
+from pytz import timezone
+from ConfigParser import SafeConfigParser
+# Call in Settings
+parser = SafeConfigParser()
+parser.read('settings.conf')
+style = str(parser.get('settings', 'Font'))
+fsize = int(parser.get('settings', 'Size'))
+bgcolour = str(parser.get('settings', 'Background-Colour'))
+textcolour = str(parser.get('settings', 'Text-Colour'))
+fheight = int(parser.get('settings', 'Frame-Height'))
+fwidth = int(parser.get('settings', 'Frame-Width'))
 
+#Launch TK Root
 root = Tk()
-time1 = ''
-clock = Label(root, font=('times', 40, 'bold'), bg='Red')
-clock.pack(fill=BOTH, expand=1)
-
+clock = Label(root, font=(style, fsize, 'bold'), bg=bgcolour)
+clock.pack(fill=BOTH, expand=0)
+format=("%d/%m/%y  %H:%M:%S")
 def tick():
-    global time1
-    # get the current local time from the PC
-    time2 = time.strftime('%H:%M:%S')
-    # if time string has changed, update it
-    if time2 != time1:
-        time1 = time2
-        clock.config(text=time2)
-    # calls itself every 200 milliseconds
-    # to update the time display as needed
-    # could use >200 ms, but display gets jerky
-    clock.after(200, tick)
-
+	now = datetime.now(timezone('Australia/Adelaide'))
+	now = str(now.strftime(format)
+	clock.config(text=now, height=fheight, width=fwidth)
+	clock.after(200, tick)
 tick()
-root.mainloop(  )
+root.mainloop( )
