@@ -22,7 +22,7 @@ clock.pack(fill=BOTH, expand=0)
 format=("%d/%m/%y  %H:%M:%S")
 def tick():
 	now = datetime.now(timezone('Australia/Adelaide'))
-	now = str(now.strftime(format)
+	now = str(now.strftime(format))
 	clock.config(text=now, height=fheight, width=fwidth)
 	clock.after(200, tick)
 tick()
