@@ -10,10 +10,10 @@ parser = SafeConfigParser()
 parser.read('settings.conf')
 style = str(parser.get('settings', 'Font'))#Set
 fsize = int(parser.get('settings', 'Size'))#Set
-HourColour = str(parser.get('settings', 'BG-Hour-Colour'))#Set
-QuarterColour = str(parser.get('settings', 'BG-Quarter-Colour'))#Set
-HalfColour = str(parser.get('settings', 'BG-Half-Colour'))#Set
-ThreeQuaterColour = str(parser.get('settings', 'BG-ThreeQuater-Colour'))#Set
+HourColour = str(parser.get('settings', 'Hour-Colour'))#Set
+QuarterColour = str(parser.get('settings', 'Quarter-Colour'))#Set
+HalfColour = str(parser.get('settings', 'Half-Colour'))#Set
+ThreeQuaterColour = str(parser.get('settings', 'ThreeQuater-Colour'))#Set
 FGHour  = str(parser.get('settings', 'Text-Hour-Colour'))#Set
 FGQuater  = str(parser.get('settings', 'Text-Quater-Colour'))#Set
 FGHalf  = str(parser.get('settings', 'Text-Half-Colour'))#Set
